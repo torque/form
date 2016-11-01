@@ -56,38 +56,35 @@
 	catch(PDOException $e) {
 		echo "Error: ".$e."<br>";
 	}
-?>
-<form action="confirmation.php" method="post">
-
-    <input type="hidden" name="student_email" value="<?=$email_student?>" />
-    <input type="hidden" name="advisor_num" value="<?=$advisor_number?>" />
-    <?php
-        if($advisor_number != 4) {
-            echo 'Signature: <input type="text" name="advisor_name" />';
-        }
-    ?>
-    <?php
+    if($advisor_number != 4) {
+        echo '<form action="confirmation.php" method="post">';
+        echo '<input type="hidden" name="student_email" value="'.$email_student.'" />';
+        echo '<input type="hidden" name="advisor_num" value="'.$advisor_number.'" />';
+        echo 'Signature: <input type="text" name="advisor_name" />';
         if($advisor_number < 3) {
             echo 'Forward to: <input type="email" name="next_email" />';
         }
-        if($advisor_number != 4) {
-            echo '<input type="submit" class="button" name="approve" value="Approve" />';
-            echo '</form>';
-            echo '<form action="rejection.php" method="post">';
-            echo '<input type="hidden" name="student_first_name" value="'.$result[0]["first_name"].'" />';
-            echo '<input type="hidden" name="student_last_name" value="'.$result[0]["last_name"].'" />';
-            echo '<input type="hidden" name="student_email" value="<?=$email_student?>" />';
-            echo '<input type="submit" class="button" name="reject" value="Reject" />';
-            echo '</form>';
-        }
-        else {
-            echo '<button type="button" onClick="print_function()">Print</button>';
-            echo '<script>';
-                echo 'function print_function() {';
-                    echo 'window.print();';
-                echo '}';
-            echo '</script>';
-        }
+        echo '<input type="submit" class="button" name="approve" value="Approve" />';
+        echo '</form>';
+        echo '<form action="rejection.php" method="post">';
+        echo '<input type="hidden" name="student_first_name" value="'.$result[0]["first_name"].'" />';
+        echo '<input type="hidden" name="student_last_name" value="'.$result[0]["last_name"].'" />';
+        echo '<input type="hidden" name="student_email" value="'.$email_student.'" />';
+        echo '<input type="submit" class="button" name="reject" value="Reject" />';
+        echo '</form>';
+    }
+    else {
+        echo '<button type="button" onClick="print_function()">Print</button>';
+        echo '<script>';
+            echo 'function print_function() {';
+                echo 'window.print();';
+            echo '}';
+        echo '</script>';
+        echo '<form action="deletion.php" method="post">';
+        echo '<input type="hidden" name="student_email" value="'.$email_student.'" />';
+        echo '<input type="submit" class="button" name="delete" value="Delete" />';
+        echo '</form>';
+    }
     ?>
 </body>
 </html>

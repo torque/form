@@ -5,10 +5,10 @@
 <body>
 <?php
 	$host = "dbserver.engr.scu.edu";
-	$db = "sdb_jho2";
+	$db = "sdb_mdemeter";
 	$table = "Students";
-	$user = "jho2";
-	$pass = "00001025576";
+	$user = "mdemeter";
+	$pass = "00001023775";
 	$charset = "utf8";
 	try {
 		$pdo = new PDO("mysql:host=$host", $user, $pass);
@@ -19,7 +19,7 @@
 		// echo "Database $db created successfully <br>";
 		$sql = "USE $db";
 		$pdo->exec($sql);
-		$sql = "CREATE TABLE IF NOT EXISTS $table (first_name VARCHAR(255), last_name VARCHAR(255), email_student VARCHAR(255) PRIMARY KEY, major VARCHAR(255), advisor VARCHAR(255), ademail VARCHAR(255), atype VARCHAR(255), year VARCHAR(255), quarter VARCHAR(255), hdept VARCHAR(255), cid1 VARCHAR(255), ctitle1 VARCHAR(255),credit1 VARCHAR(255), cid2 VARCHAR(255), ctitle2 VARCHAR(255),credit2 VARCHAR(255), cid3 VARCHAR(255), ctitle3 VARCHAR(255),credit3 VARCHAR(255), cid4 VARCHAR(255), ctitle4 VARCHAR(255),credit4 VARCHAR(255), cid5 VARCHAR(255), ctitle5 VARCHAR(255),credit5 VARCHAR(255), cid6 VARCHAR(255), ctitle6 VARCHAR(255),credit6 VARCHAR(255), total VARCHAR(255), stusign VARCHAR(255),studate VARCHAR(255))";
+		$sql = "CREATE TABLE IF NOT EXISTS $table (first_name VARCHAR(255), last_name VARCHAR(255), email_student VARCHAR(255) PRIMARY KEY, major VARCHAR(255), advisor VARCHAR(255), ademail VARCHAR(255), atype VARCHAR(255), year VARCHAR(255), quarter VARCHAR(255), hdept VARCHAR(255), cid1 VARCHAR(255), ctitle1 VARCHAR(255),credit1 VARCHAR(255), cid2 VARCHAR(255), ctitle2 VARCHAR(255),credit2 VARCHAR(255), cid3 VARCHAR(255), ctitle3 VARCHAR(255),credit3 VARCHAR(255), cid4 VARCHAR(255), ctitle4 VARCHAR(255),credit4 VARCHAR(255), cid5 VARCHAR(255), ctitle5 VARCHAR(255),credit5 VARCHAR(255), cid6 VARCHAR(255), ctitle6 VARCHAR(255), credit6 VARCHAR(255), total VARCHAR(255), stusign VARCHAR(255), studate VARCHAR(255), adv_sig_1 VARCHAR(255), adv_sig_2 VARCHAR(255), adv_sig_3 VARCHAR(255), adv_email_1 VARCHAR(255), adv_email_2 VARCHAR(255), adv_email_3 VARCHAR(255))";
 		$pdo->exec($sql);
 		// echo "Table $table create successfully. <br>";
 		$statement = $pdo->prepare("INSERT IGNORE INTO $table (first_name, last_name, email_student, major, advisor, ademail, atype, year, quarter, hdept, cid1, ctitle1, credit1, cid2, ctitle2, credit2, cid3, ctitle3, credit3, cid4, ctitle4, credit4, cid5, ctitle5, credit5, cid6, ctitle6, credit6, total, stusign, studate) VALUES (:fname, :lname, :email_student, :major, :advisor, :ademail, :atype, :year, :quarter, :hdept, :cid1, :ctitle1, :credit1, :cid2, :ctitle2, :credit2, :cid3, :ctitle3, :credit3, :cid4, :ctitle4, :credit4, :cid5, :ctitle5, :credit5, :cid6, :ctitle6, :credit6, :total, :stusign, :studate)");
@@ -54,7 +54,6 @@
 		$statement->bindParam(':total', $total);
 		$statement->bindParam(':stusign', $stusign);
 		$statement->bindParam(':studate', $studate);
-
 		$firstname = $_POST["first_name"];
 		$lastname = $_POST["last_name"];
 		$email_student = $_POST["email"];
@@ -86,14 +85,14 @@
 		$total = $_POST["total"];
 		$stusign= $_POST["stusign"];
 		$studate = $_POST["studate"];
-		
+
 		// echo "$firstname $lastname <br>";
 		$statement->execute();
 		// echo "Added $firstname $lastname to table $table in $db. <br>";
 		$to = $ademail;
 		// $to      = strtolower($firstname[0]).strtolower($lastname)."@scu.edu";
 		$subject = "I have submitted a form";
-		$message = "Please approve my form at students.engr.scu.edu/~jho2/form-master/get_student_info.php?email=$email_student!\n\nSincerely,\n$firstname $lastname";
+		$message = "Please approve my form at students.engr.scu.edu/~mdemeter/get_student_info.php?email=$email_student!\n\nSincerely,\n$firstname $lastname";
 		$headers = "From: $firstname";
 		mail($to, $subject, $message, $headers);
 		// echo "Sent an email to $to <br>";

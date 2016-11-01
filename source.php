@@ -21,7 +21,8 @@
 		Quarter: <input type="text" name="quarter"><br>
 		Hiring Dept/Pgm: <input type="text" name="hdept"><br>
 		<h2>Courses:</h2>
-		1. <input type="text" name="cid1"> <input type="text" name="ctitle1"> <input type="text" name="credit1"><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u>Course ID</u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u>Course Title</u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u>Number of Credits</u><br>
+		1. <input type="text" name="cid1"> <input type="text" name="ctitle&nbsp1"> <input type="text" name="credit1"><br>
 		2. <input type="text" name="cid2"> <input type="text" name="ctitle2"> <input type="text" name="credit2"><br>
 		3. <input type="text" name="cid3"> <input type="text" name="ctitle3"> <input type="text" name="credit3"><br>
 		4. <input type="text" name="cid4"> <input type="text" name="ctitle4"> <input type="text" name="credit4"><br>

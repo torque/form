@@ -30,7 +30,7 @@
         $to = $email_student;
         // $to      = strtolower($firstname[0]).strtolower($lastname)."@scu.edu";
         $subject = "I have rejected your form";
-        $message = "I'm sorry to inform you, but I've rejected your form.\nYou can fill out a new one at http://students.engr.scu.edu/~mdemeter/source.php";
+        $message = "Your form has been rejected.\nYou can fill out a new one at http://students.engr.scu.edu/~mdemeter/source.php";
         $headers = "From: me";
         mail($to, $subject, $message, $headers);
         $first_name = $_POST["student_first_name"];

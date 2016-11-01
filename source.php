@@ -6,7 +6,7 @@
 	<body>
 
 		<form action="process_form.php" method="post">
-		<h1><u>Tuition and Fees Payment Authorization for Graduate Students</u><h1>
+		<h1><u>Tuition and Fees Payment Authorization for Graduate Students</u></h1>
 		<h2>Student Data:</h2>
 		First Name: <input type="text" name="first_name"><br>
 		Last Name: <input type="text" name="last_name"><br>
@@ -28,7 +28,7 @@
 		5. <input type="text" name="cid5"> <input type="text" name="ctitle5"> <input type="text" name="credit5"><br>
 		6. <input type="text" name="cid6"> <input type="text" name="ctitle6"> <input type="text" name="credit6"><br>
 		TOTAL: $<input type="text" name="total"><br><br>
-		Student's Signature: <input type="text" name="stusign"> Date: <input type="text" name="studate"> <input type="submit"><br>
+		Student's Signature: <input type="text" name="stusign"> Date: <input type="text" name="studate"> <input type="submit" value="Submit"><br>
 		</form>
 	</body>
 </html>

@@ -1,3 +1,38 @@
+.header-bar {
+  
+  width: 100%;
+  background-color: #F8F8F8;
+  padding: 20px;
+
+}
+
+h1 {
+  
+  margin-right: 30%
+
+}
+
+.col-sm-3 {
+
+  padding: 5px;
+
+}
+
+input {
+
+   border: 1px solid #ccc;
+   border-radius: 5px; 
+
+ }
+
+ .divider {
+
+  width: 100%;
+  background-color: #DCDCDC;
+  height: 3px;
+
+ }
+
 .reveal-if-active {
   opacity: 0;
   max-height: 0;
@@ -26,7 +61,7 @@
 }
 
 form {
-  max-width: 500px;
+  max-width: 700px;
   margin: 20px auto;
   > div {
     margin: 0 0 20px 0;

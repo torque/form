@@ -63,16 +63,29 @@
 		<h3>Position Data</h3>
 
 		<script type="text/javascript">
-		  function yesnoCheck() {
-		    if (document.getElementById('RA').checked) {
-    			document.getElementById('RAYes').style.display = 'block';
-                document.getElementById("is_ra").value="true";
-		    }
-		    else {
-                document.getElementById('RAYes').style.display = 'none';
-                document.getElementById("is_ra").value="false";
+            function yesnoCheck() {
+                if (document.getElementById('RA').checked) {
+                	document.getElementById('RAYes').style.display = 'block';
+                    document.getElementById("is_ra").value="true";
+                }
+                else {
+                    document.getElementById('RAYes').style.display = 'none';
+                    document.getElementById("is_ra").value="false";
+                }
             }
-		  }
+            function findTotal(){
+                var arr = document.getElementsByName('cc');
+                var tot=0;
+                for(var i=0;i<arr.length;i++){
+                    var target = "credit".concat(i+1);
+                    var val = parseInt(arr[i].value)
+                    if(val) {
+                        tot += (val * 925);
+                        document.getElementById(target).value = val;
+                    }
+                }
+                document.getElementById('total').value = tot;
+            }
 		</script>
 
 		TA <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="TA" value="TA">
@@ -148,7 +161,8 @@
 			</div>
 			<div class = "col-sm-4">
 				<h5>Number of Credits</h5><br>
-				<input type="text" name="credit1">
+				<input type="text" name="cc" onblur="findTotal()" id="cc1">
+                <input type="hidden" name="credit1" id="credit1">
 			</div>
 		</div>
 
@@ -162,7 +176,8 @@
 				<input type="text" name="ctitle2">
 			</div>
 			<div class = "col-sm-4">
-				<input type="text" name="credit2">
+				<input type="text" name="cc" onblur="findTotal()" id="cc2">
+                <input type="hidden" name="credit2" id="credit2">
 			</div>
 		</div>
 
@@ -176,7 +191,8 @@
 				<input type="text" name="ctitle3">
 			</div>
 			<div class = "col-sm-4">
-				<input type="text" name="credit3">
+				<input type="text" name="cc" onblur="findTotal()" id="cc3">
+                <input type="hidden" name="credit3" id="credit3">
 			</div>
 		</div>
 
@@ -190,7 +206,8 @@
 				<input type="text" name="ctitle4">
 			</div>
 			<div class = "col-sm-4">
-				<input type="text" name="credit4">
+				<input type="text" name="cc" onblur="findTotal()" id="cc4">
+                <input type="hidden" name="credit4" id="credit4">
 			</div>
 		</div>
 
@@ -204,7 +221,8 @@
 				<input type="text" name="ctitle5">
 			</div>
 			<div class = "col-sm-4">
-				<input type="text" name="credit5">
+				<input type="text" name="cc" onblur="findTotal()" id="cc5">
+                <input type="hidden" name="credit5" id="credit5">
 			</div>
 		</div>
 
@@ -218,7 +236,8 @@
 				<input type="text" name="ctitle6">
 			</div>
 			<div class = "col-sm-4">
-				<input type="text" name="credit6">
+				<input type="text" name="cc" onblur="findTotal()" id="cc6">
+                <input type="hidden" name="credit6" id="credit6">
 			</div>
 		</div>
 
@@ -227,8 +246,10 @@
 
 		<input type="checkbox" required name="engineerTotal" id="engineerTotal" value="true">
 		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label>
+        <script type="text/javascript">
 
-		TOTAL: $ &nbsp; <input type="text" name="total"><br><br>
+        </script>
+		TOTAL: $ <input type="text" name="total" id="total"><br><br>
 
 		<input type="checkbox" required name="tandc" id="tandc" value="true"> &nbsp;
 		<label for="tandc"> All information provided is correct to my knowledge.</label><br><br>

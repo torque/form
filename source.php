@@ -222,12 +222,15 @@
 			</div>
 		</div>
 
-		<br><br>
+		<br>
+		<div class = "divider"> </div>
 
-		TOTAL: $<input type="text" name="total"><br><br>
+		<input type="checkbox" required name="engineerTotal" id="engineerTotal" value="true">
+		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label>
+
+		TOTAL: $ &nbsp; <input type="text" name="total"><br><br>
 
 		<input type="checkbox" required name="tandc" id="tandc" value="true"> &nbsp;
-
 		<label for="tandc"> All information provided is correct to my knowledge.</label><br><br>
 
 		<b>Student's Signature</b>

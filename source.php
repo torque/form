@@ -5,7 +5,7 @@
 	</head>
 	<body>
 
-		<form action="process_form.php" method="post">
+		<form action="../php-cgi/process_form.php" method="post">
 		<h1><u>Tuition and Fees Payment Authorization for Graduate Students</u></h1>
 		<h2>Student Data:</h2>
 		First Name: <input type="text" required name="first_name"><br>
@@ -19,10 +19,14 @@
 		<script type="text/javascript">
 		  function yesnoCheck() {
 		    if (document.getElementById('RA').checked) {
-			document.getElementById('RAYes').style.display = 'block';
+    			document.getElementById('RAYes').style.display = 'block';
+                document.getElementById("is_ra").value="true";
 		    }
-		    else document.getElementById('RAYes').style.display = 'none';
-		  }
+		    else {
+                document.getElementById('RAYes').style.display = 'none';
+                document.getElementById("is_ra").value="false";
+            }
+        }
 		</script>
 		TA: <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="TA" value="TA"> RA: <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="RA" value="RA"><br>
 		<div id="RAYes" style="display:none">
@@ -37,6 +41,7 @@
 		Academic Year: <input type="text" required name="year"><br>
 		Quarter: <input type="text" required name="quarter"><br>
 		Hiring Dept/Pgm: <input type="text" required name="hdept"><br>
+        <input type="hidden" name="is_ra" value="false" id="is_ra"/>
 		<h2>Courses:</h2>
         <u>Course ID</u><u>Course Title</u><u>Number of Credits</u><br>
 		1. <input type="text" name="cid1"> <input type="text" name="ctitle1"> <input type="text" name="credit1"><br>
@@ -46,7 +51,8 @@
 		5. <input type="text" name="cid5"> <input type="text" name="ctitle5"> <input type="text" name="credit5"><br>
 		6. <input type="text" name="cid6"> <input type="text" name="ctitle6"> <input type="text" name="credit6"><br>
 		TOTAL: $<input type="text" name="total"><br><br>
-		<input type="checkbox" required name="tandc" id="tandc" value="true"><label for="tandc"> All information provided is correct to my knowledge.</label><br> 
+        <input type="checkbox" name="i_am_engineer" id="i_am_engineer" value="true"><label for="tandc"> I'm an engineer</label><br>
+		<input type="checkbox" required name="tandc" id="tandc" value="true"><label for="tandc"> All information provided is correct to my knowledge.</label><br>
 		Student's Signature: <input type="text" name="stusign"> Date: <input type="text" name="studate"> <input type="submit" value="Submit"><br>
 		</form>
 	</body>

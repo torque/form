@@ -4,31 +4,34 @@
 </head>
 <body>
 <?php
-	$host = "dbserver.engr.scu.edu";
-	$db = "sdb_mdemeter";
-	$table = "Students";
+    $host = "dbserver.engr.scu.edu";
+    $db = "sdb_mdemeter";
+    $table = "Students";
     $secrets = fopen("../form/secrets.txt", "r");
-	$user = fgets($secrets);
+    $user = fgets($secrets);
     $user = trim($user, "\n");
-	$pass = fgets($secrets);
-	try {
-		$pdo = new PDO("mysql:host=$host", $user, $pass);
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-		$sql = "USE $db";
-		$pdo->exec($sql);
-		$email_student = $_GET["email"];
-		$statement = $pdo->prepare("SELECT * FROM $table WHERE email_student='$email_student'");
-		$statement->execute();
-		$result = $statement->fetchAll();
+    $pass = fgets($secrets);
+    try {
+        $pdo = new PDO("mysql:host=$host", $user, $pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $sql = "USE $db";
+        $pdo->exec($sql);
+        $email_student = $_GET["email"];
+        $statement = $pdo->prepare("SELECT * FROM $table WHERE email_student='$email_student'");
+        $statement->execute();
+        $result = $statement->fetchAll();
         echo "<h1><u>Tuition and Fees Payment Authorization for Graduate Students</u><h1>";
         echo "<h2>Student Data:</h2>";
-		echo "Student Name: ".$result[0]["first_name"]." ".$result[0]["last_name"]."<br>";
+        echo "Student Name: ".$result[0]["first_name"]." ".$result[0]["last_name"]."<br>";
         echo "Student's Email: ".$result[0]["email_student"]."<br>";
         echo "Major: ".$result[0]["major"]."<br>";
         echo "Advisor: ".$result[0]["advisor"]."<br>";
         echo "<h2>Position Data:</h2>"."<br>";
         echo "TA/RA: ".$result[0]["atype"]."<br>";
+        echo "Academic Year: ".$result[0]["year"]."<br>";
+        echo "Quarter: ".$result[0]["quarter"]."<br>";
+        echo "Hiring Dept/Pgm: ".$result[0]["hdept"]."<br>";
         if($result[0]["atype"] == "RA") {
             echo "Account: ".$result[0]["ra_acc"]."<br>";
             echo "Fund: ".$result[0]["ra_fund"]."<br>";
@@ -38,9 +41,6 @@
             echo "Class: ".$result[0]["ra_class"]."<br>";
             echo "Project ID: ".$result[0]["ra_id"]."<br>";
         }
-        echo "Academic Year: ".$result[0]["year"]."<br>";
-        echo "Quarter: ".$result[0]["quarter"]."<br>";
-        echo "Hiring Dept/Pgm: ".$result[0]["hdept"]."<br>";
         echo "<h2>Courses:</h2>"."<br>";
         echo "1. ".$result[0]["cid1"]." ".$result[0]["ctitle1"]." ".$result[0]["credit1"]."<br>";
         if($result[0]["cid2"] != '') {
@@ -98,41 +98,23 @@
             $advisor_number = 10;
         }
 
-		$pdo = null;
-	}
-	catch(PDOException $e) {
-		echo "Error: ".$e."<br>";
-	}
-    echo '<form action="confirmation.php" method="post">';
-    echo '<input type="hidden" name="student_email" value="'.$email_student.'" />';
-    echo '<input type="hidden" name="advisor_num" value="'.$advisor_number.'" />';
-    echo '<input type="hidden" name="is_last" value="true" id="is_last" />';
-    echo '<input type="hidden" name="student_first_name" value="'.$result[0]["first_name"].'" />';
-    echo '<input type="hidden" name="student_last_name" value="'.$result[0]["last_name"].'" />';
-    echo 'Signature: <input type="text" name="advisor_name" />';
-    echo '<input type="email" id="sf" style="visibility:hidden" name="next_email" />';
-    echo '<button type="button" id="sff" onClick="show_field()">Forward</button/>';
-    echo '<input type="submit" class="button" name="approve" value="Approve" />';
-    echo '</form>';
-    echo '<form action="rejection.php" method="post">';
-    echo '<input type="hidden" name="student_first_name" value="'.$result[0]["first_name"].'" />';
-    echo '<input type="hidden" name="student_last_name" value="'.$result[0]["last_name"].'" />';
-    echo '<input type="hidden" name="student_email" value="'.$email_student.'" />';
-    echo '<input type="submit" class="button" name="reject" value="Reject" />';
-    echo '</form>';
-    echo '<script>';
-        echo 'function show_field() {';
-            echo 'document.getElementById("sf").style.visibility="visible";';
-            echo 'document.getElementById("sff").style.visibility="hidden";';
-            echo 'document.getElementById("is_last").value="false";';
-        echo '}';
-    echo '</script>';
+        $pdo = null;
+    }
+    catch(PDOException $e) {
+        echo "Error: ".$e."<br>";
+    }
     echo '<button type="button" onClick="print_function()">Print</button>';
     echo '<script>';
         echo 'function print_function() {';
             echo 'window.print();';
         echo '}';
     echo '</script>';
+    echo '<form action="deletion.php" method="post">';
+    echo '<input type="hidden" name="student_email" value="'.$email_student.'" />';
+    echo '<input type="hidden" name="student_first_name" value="'.$result[0]["first_name"].'" />';
+    echo '<input type="hidden" name="student_last_name" value="'.$result[0]["last_name"].'" />';
+    echo '<input type="submit" class="button" name="delete" value="Delete" />';
+    echo '</form>';
 ?>
 </body>
 </html>

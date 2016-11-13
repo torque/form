@@ -7,8 +7,10 @@
         $host = "dbserver.engr.scu.edu";
         $db = "sdb_mdemeter";
         $table = "Students";
-        $user = "mdemeter";
-        $pass = "00001023775";
+        $secrets = fopen("../form/secrets.txt", "r");
+        $user = fgets($secrets);
+        $user = trim($user, "\n");
+        $pass = fgets($secrets);
         $charset = "utf8";
 
         try {
@@ -26,7 +28,7 @@
             echo "Error: ".$e."<br>";
         }
         $pdo = null;
-        echo "You have deleted the form."
+        echo "You have deleted".$_POST["student_first_name"]." ".$_POST["student_last_name"]."'s form.<br>"
     ?>
 </body>
 </html>

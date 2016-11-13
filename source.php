@@ -65,15 +65,19 @@
 		<script type="text/javascript">
 		  function yesnoCheck() {
 		    if (document.getElementById('RA').checked) {
-			document.getElementById('RAYes').style.display = 'block';
+    			document.getElementById('RAYes').style.display = 'block';
+                document.getElementById("is_ra").value="true";
 		    }
-		    else document.getElementById('RAYes').style.display = 'none';
+		    else {
+                document.getElementById('RAYes').style.display = 'none';
+                document.getElementById("is_ra").value="false";
+            }
 		  }
 		</script>
 
-		TA <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="TA" value="TA"> 
+		TA <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="TA" value="TA">
 		RA <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="RA" value="RA"><br>
-		
+        <input type="hidden" name="is_ra" value="false" id="is_ra"/>
 		<div id="RAYes" style="display:none">
 			<div class = "row">
 				<div class ="col-sm-3">
@@ -136,13 +140,13 @@
         <div class = "row">
         	<div class = "col-sm-4">
         		<h5>Course ID</h5><br>
-				1. <input type="text" name="cid1"> 
+				1. <input type="text" name="cid1">
 			</div>
 			<div class = "col-sm-4">
 				<h5>Course Title</h5><br>
 				<input type="text" name="ctitle1">
 			</div>
-			<div class = "col-sm-4"> 
+			<div class = "col-sm-4">
 				<h5>Number of Credits</h5><br>
 				<input type="text" name="credit1">
 			</div>
@@ -152,13 +156,13 @@
 
 		 <div class = "row">
         	<div class = "col-sm-4">
-				2. <input type="text" name="cid2"> 
+				2. <input type="text" name="cid2">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle2">
 			</div>
-			<div class = "col-sm-4"> 
-				<input type="text" name="credit2"> 
+			<div class = "col-sm-4">
+				<input type="text" name="credit2">
 			</div>
 		</div>
 
@@ -166,13 +170,13 @@
 
 		 <div class = "row">
         	<div class = "col-sm-4">
-				3. <input type="text" name="cid3"> 
+				3. <input type="text" name="cid3">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle3">
 			</div>
-			<div class = "col-sm-4"> 
-				<input type="text" name="credit3"> 
+			<div class = "col-sm-4">
+				<input type="text" name="credit3">
 			</div>
 		</div>
 
@@ -180,13 +184,13 @@
 
 		 <div class = "row">
         	<div class = "col-sm-4">
-				4. <input type="text" name="cid4"> 
+				4. <input type="text" name="cid4">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle4">
 			</div>
-			<div class = "col-sm-4"> 
-				<input type="text" name="credit4"> 
+			<div class = "col-sm-4">
+				<input type="text" name="credit4">
 			</div>
 		</div>
 
@@ -194,13 +198,13 @@
 
 		 <div class = "row">
         	<div class = "col-sm-4">
-				5. <input type="text" name="cid5"> 
+				5. <input type="text" name="cid5">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle5">
 			</div>
-			<div class = "col-sm-4"> 
-				<input type="text" name="credit5"> 
+			<div class = "col-sm-4">
+				<input type="text" name="credit5">
 			</div>
 		</div>
 
@@ -208,13 +212,13 @@
 
 		 <div class = "row">
         	<div class = "col-sm-4">
-				6. <input type="text" name="cid6"> 
+				6. <input type="text" name="cid6">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle6">
 			</div>
-			<div class = "col-sm-4"> 
-				<input type="text" name="credit6"> 
+			<div class = "col-sm-4">
+				<input type="text" name="credit6">
 			</div>
 		</div>
 
@@ -229,7 +233,7 @@
 		<b>Student's Signature</b>
 		<input type="text" name="stusign"> &nbsp;
 
-		<b>Date</b> 
+		<b>Date</b>
 		<input type="text" name="studate"> &nbsp;
 
 		<input type="submit" value="Submit"><br>

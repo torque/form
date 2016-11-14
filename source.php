@@ -63,6 +63,14 @@
 		<h3>Position Data</h3>
 
 		<script type="text/javascript">
+            function engrCheck() {
+                if(document.getElementById('engineerTotal').checked) {
+                    document.getElementById('total').value = parseInt(document.getElementById('total').value) + 150;
+                }
+                else {
+                    document.getElementById('total').value -= "150";
+                }
+            }
             function yesnoCheck() {
                 if (document.getElementById('RA').checked) {
                 	document.getElementById('RAYes').style.display = 'block';
@@ -244,12 +252,12 @@
 		<br>
 		<div class = "divider"> </div>
 
-		<input type="checkbox" required name="engineerTotal" id="engineerTotal" value="true">
+		<input type="checkbox" required name="engineerTotal" id="engineerTotal" onClick="engrCheck()" value="true">
 		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label>
         <script type="text/javascript">
 
         </script>
-		TOTAL: $ <input type="text" name="total" id="total"><br><br>
+		TOTAL: $ <input type="text" name="total" id="total" value="0"><br><br>
 
 		<input type="checkbox" required name="tandc" id="tandc" value="true"> &nbsp;
 		<label for="tandc"> All information provided is correct to my knowledge.</label><br><br>

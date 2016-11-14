@@ -33,6 +33,33 @@ input {
 
  }
 
+ #approve {
+
+  background-color: #008000;
+  color: white;
+
+ }
+
+ #reject {
+
+    background-color: #B22222;
+    color: white;
+
+ }
+
+#sff {
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+}
+
+#print {
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 .reveal-if-active {
   opacity: 0;
   max-height: 0;
@@ -58,6 +85,28 @@ input {
     overflow: visible;
   }
   
+}
+
+.form {
+
+  max-width: 700px;
+  margin: 20px auto;
+  > div {
+    margin: 0 0 20px 0;
+    label {
+      font-weight: bold;
+    }
+    > div {
+      padding: 5px;
+    }
+  }
+  > h4 {
+    color: green;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid green;
+  }
+
 }
 
 form {

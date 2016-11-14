@@ -20,8 +20,10 @@
             	$host = "dbserver.engr.scu.edu";
             	$db = "sdb_mdemeter";
             	$table = "Students";
-                $user = "mdemeter";
-            	$pass = "00001023775";
+                $secrets = fopen("secrets.txt", "r");
+                $user = fgets($secrets);
+                $user = trim($user, "\n");
+                $pass = fgets($secrets);
             	try {
             		$pdo = new PDO("mysql:host=$host", $user, $pass);
             		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -32,7 +34,7 @@
             		$statement = $pdo->prepare("SELECT * FROM $table WHERE email_student='$email_student'");
             		$statement->execute();
             		$result = $statement->fetchAll();
-            
+
 
                     echo "<center><h2><u>Tuition and Fees Payment Authorization for Graduate Students</u></h2></center>";
 
@@ -48,7 +50,7 @@
                         echo '<div class ="col-sm-3">';
                             echo "<h5>Major</h5>".$result[0]["major"];
                         echo "</div>";
-                        echo '<div class ="col-sm-3">'; 
+                        echo '<div class ="col-sm-3">';
                             echo "<h5>Advisor</h5>".$result[0]["advisor"];
                         echo "</div>";
                     echo "</div>";
@@ -109,7 +111,7 @@
                     echo '<div class = "row">';
                         echo '<div class = "col-sm-6">';
                             echo "<h5>Course</h5>";
-                            echo "1. ".$result[0]["cid1"]." ".$result[0]["ctitle1"]; 
+                            echo "1. ".$result[0]["cid1"]." ".$result[0]["ctitle1"];
                         echo "</div>";
                         echo '<div class = "col-sm-6">';
                             echo "<h5>Units</h5>";
@@ -226,7 +228,7 @@
                 echo '<input type="hidden" name="student_first_name" value="'.$result[0]["first_name"].'" />';
                 echo '<input type="hidden" name="student_last_name" value="'.$result[0]["last_name"].'" />';
                 echo 'Signature: <input type="text" name="advisor_name" /> &nbsp';
-                echo 'Forward to: <input type="email" id="sf" name="next_email" /> &nbsp ';
+                echo 'Forward to: <input type="email" id="sf" name="next_email" style="visibility:hidden"/> &nbsp ';
                 echo '<button type="button" id="sff" onClick="show_field()">Forward</button/> <br><br>';
                 echo '<input type="submit" class="button" name="approve" value="Approve" id = "approve" />';
                 echo '</form>';

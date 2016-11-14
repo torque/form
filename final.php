@@ -15,8 +15,10 @@
             $host = "dbserver.engr.scu.edu";
             $db = "sdb_mdemeter";
             $table = "Students";
-            $user = "mdemeter";
-            $pass = "00001023775";
+            $secrets = fopen("secrets.txt", "r");
+            $user = fgets($secrets);
+            $user = trim($user, "\n");
+            $pass = fgets($secrets);
 
                 try {
                     $pdo = new PDO("mysql:host=$host", $user, $pass);
@@ -28,9 +30,9 @@
                     $statement = $pdo->prepare("SELECT * FROM $table WHERE email_student='$email_student'");
                     $statement->execute();
                     $result = $statement->fetchAll();
-                    
+
                     echo "<center><h2><u>Tuition and Fees Payment Authorization for Graduate Students</u></h2></center>";
-                    
+
                     echo "<h3>Student Data</h3>";
 
                     echo '<div class = "row">';
@@ -43,7 +45,7 @@
                         echo '<div class ="col-sm-3">';
                             echo "<h5>Major</h5>".$result[0]["major"];
                         echo "</div>";
-                            echo '<div class ="col-sm-3">'; 
+                            echo '<div class ="col-sm-3">';
                                 echo "<h5>Advisor</h5>".$result[0]["advisor"];
                             echo "</div>";
                     echo "</div>";
@@ -82,7 +84,7 @@
                                 echo "<h5>Project ID</h5>".$result[0]["ra_id"]."<br>";
                             echo "</div>";
                         echo "</div>";
-                        
+
                         echo '<br> <div class = "divider"> </div>';
                     }
 
@@ -105,7 +107,7 @@
                     echo '<div class = "row">';
                         echo '<div class = "col-sm-6">';
                             echo "<h5>Course</h5>";
-                            echo "1. ".$result[0]["cid1"]." ".$result[0]["ctitle1"]; 
+                            echo "1. ".$result[0]["cid1"]." ".$result[0]["ctitle1"];
                         echo "</div>";
                         echo '<div class = "col-sm-6">';
                             echo "<h5>Units</h5>";

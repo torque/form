@@ -7,8 +7,10 @@
 	$host = "dbserver.engr.scu.edu";
 	$db = "sdb_mdemeter";
 	$table = "Students";
-    $user = "mdemeter";
-	$pass = "00001023775";
+    $secrets = fopen("secrets.txt", "r");
+    $user = fgets($secrets);
+    $user = trim($user, "\n");
+    $pass = fgets($secrets);
 	$charset = "utf8";
 	try {
 		$pdo = new PDO("mysql:host=$host", $user, $pass);

@@ -107,7 +107,7 @@
                     <select>
                         <option value="Full Time">Full Time</option>
                         <option value="2/3 Time">2/3 Time</option>
-                        <option value-"1/3 Time">1/3 Time</option>
+                        <option value="1/3 Time">1/3 Time</option>
                     </select>
                 </div>
             </div>

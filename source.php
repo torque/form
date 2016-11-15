@@ -74,10 +74,12 @@
             function yesnoCheck() {
                 if (document.getElementById('RA').checked) {
                 	document.getElementById('RAYes').style.display = 'block';
+                    document.getElementById('TAYes').style.display = 'none';
                     document.getElementById("is_ra").value="true";
                 }
                 else {
                     document.getElementById('RAYes').style.display = 'none';
+                    document.getElementById('TAYes').style.display = 'block';
                     document.getElementById("is_ra").value="false";
                 }
             }
@@ -99,6 +101,17 @@
 		TA <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="TA" value="TA">
 		RA <input type="radio" onclick="javascript:yesnoCheck();" name="atype" id="RA" value="RA"><br>
         <input type="hidden" name="is_ra" value="false" id="is_ra"/>
+        <div id="TAYes" style="display:none">
+            <div class="row">
+               <div class ="col-sm-3">
+                    <select>
+                        <option value="Full Time">Full Time</option>
+                        <option value="2/3 Time">2/3 Time</option>
+                        <option value-"1/3 Time">1/3 Time</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 		<div id="RAYes" style="display:none">
 			<div class = "row">
 				<div class ="col-sm-3">

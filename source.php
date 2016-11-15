@@ -253,7 +253,7 @@
 		<div class = "divider"> </div>
 
 		<input type="checkbox" required name="engineerTotal" id="engineerTotal" onClick="engrCheck()" value="true">
-		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label>
+		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label><br>
         <script type="text/javascript">
 
         </script>

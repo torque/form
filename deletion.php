@@ -28,7 +28,7 @@
             echo "Error: ".$e."<br>";
         }
         $pdo = null;
-        echo "You have deleted".$_POST["student_first_name"]." ".$_POST["student_last_name"]."'s form.<br>"
+        echo "You have deleted ".$_POST["student_first_name"]." ".$_POST["student_last_name"]."'s form.<br>"
     ?>
 </body>
 </html>

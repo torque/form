@@ -1,5 +1,5 @@
 .header-bar {
-  
+
   width: 100%;
   background-color: #F8F8F8;
   padding: 20px;
@@ -7,7 +7,7 @@
 }
 
 h1 {
-  
+
   margin-right: 30%
 
 }
@@ -21,7 +21,7 @@ h1 {
 input {
 
    border: 1px solid #ccc;
-   border-radius: 5px; 
+   border-radius: 5px;
 
  }
 
@@ -67,7 +67,7 @@ input {
   font-size: 16px;
   transform: scale(0.8);
   transition: 0.5s;
-  
+
   label {
     display: block;
     margin: 0 0 3px 0;
@@ -75,7 +75,7 @@ input {
   input[type=text] {
     width: 100%;
   }
-  
+
   input[type="radio"]:checked ~ &,
   input[type="checkbox"]:checked ~ & {
     opacity: 1;
@@ -84,7 +84,7 @@ input {
     transform: scale(1);
     overflow: visible;
   }
-  
+
 }
 
 .form {
@@ -134,4 +134,4 @@ body {
 }
 * {
   box-sizing: border-box;
-} 
+}

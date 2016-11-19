@@ -86,6 +86,13 @@
                 }
             }
             function findTotal(){
+                if(document.getElementById('ta_option').value == "Full Time") {
+                    document.getElementById('cred_max').value = 8;
+                } else if(document.getElementById('ta_option').value == "2/3 Time") {
+                    document.getElementById('cred_max').value = 5;
+                } else {
+                    document.getElementById('cred_max').value = 2;
+                }
                 var array = document.querySelectorAll('.cc');
                 var total = 0;
                 for(var i = 0; i < array.length; i++){
@@ -95,6 +102,10 @@
                         total += (val * 925);
                         document.getElementById(target).value = val;
                     }
+                }
+                document.getElementById('cred_total').value = total / 925;
+                if(document.getElementById('cred_total').value > document.getElementById('cred_max').value) {
+                    total = 925 * document.getElementById('cred_max').value;
                 }
                 if(document.getElementById('engineerTotal').checked) {
                     document.getElementById('total').value = total + 150;
@@ -108,10 +119,12 @@
                     number += 1;
                     if(document.getElementById('class_'+number).style.display = "none") {
                         if(document.getElementById('credit'+(number-1)).value!='') {
-                            document.getElementById('class_'+number).style.display = "block";
-                            document.getElementById('class_'+number).style.textAlign="center";
-                            document.getElementById('class_'+number+'_break').style.display = "block";
-                            document.getElementById('course_val').value = number;
+                            if(document.getElementById('cred_total').value < document.getElementById('cred_max').value) {
+                                document.getElementById('class_'+number).style.display = "block";
+                                document.getElementById('class_'+number).style.textAlign="center";
+                                document.getElementById('class_'+number+'_break').style.display = "block";
+                                document.getElementById('course_val').value = number;
+                            }
                         }
                     }
                 }
@@ -207,7 +220,10 @@
 		<div class = "divider"> </div>
 
 		<h3>Courses</h3>
-        <input type="hidden" name="course_val" value=1 id="course_val" >
+        <input type="hidden" name="course_val" value=1 id="course_val">
+        <input type="hidden" name="cred_total" value=0 id="cred_total">
+        <input type="hidden" name="cred_max" value=0 id="cred_max">
+
         <div class = "row" style="text-align:center">
         	<div class = "col-sm-4">
         		<h5>Course ID</h5>

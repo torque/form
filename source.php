@@ -11,7 +11,7 @@
 
 	<body>
 
-		<div class = "header-bar" style="text-align:center">
+		<div class = "header-bar">
 
 			<img src="scu.jpg" alt="Santa Clara Uniersity">
 
@@ -23,7 +23,7 @@
 
 		<h3>Student Data</h3>
 
-		<div class = "row" style="text-align:center">
+		<div class = "row">
 			<div class ="col-sm-3">
 				<h5>First Name</h5>
 				<input type="text" required name="first_name" placeholder="First Name"><br>
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 
-		<div class ="row" style="text-align:center">
+		<div class ="row">
 			<div class ="col-sm-3">
 				<h5>Student Email</h5>
 				<input type="email" required name="email" placeholder="Student Email"><br>
@@ -121,7 +121,6 @@
                         if(document.getElementById('credit'+(number-1)).value!='') {
                             if(document.getElementById('cred_total').value < document.getElementById('cred_max').value) {
                                 document.getElementById('class_'+number).style.display = "block";
-                                document.getElementById('class_'+number).style.textAlign="center";
                                 document.getElementById('class_'+number+'_break').style.display = "block";
                                 document.getElementById('course_val').value = number;
                             }
@@ -143,28 +142,28 @@
                     }
                 }
             }
-		</script>
-
-		TA <input type="radio" onclick="yesnoCheck()" name="atype" id="TA" value="TA">
-		RA <input type="radio" onclick="yesnoCheck()" name="atype" id="RA" value="RA"><br>
+    	</script>
+		<label for="TA" style="font-weight: normal">TA</label>
+        <input type="radio" onclick="yesnoCheck()" name="atype" id="TA" value="TA" style="display:inline">
+		<label for="RA" style="font-weight: normal">RA</label>
+        <input type="radio" onclick="yesnoCheck()" name="atype" id="RA" value="RA" style="display:inline">
         <input type="hidden" name="is_ra" value="false" id="is_ra"/>
-
         <div id="TAYes" style="display:none">
             <div class="row">
                <div class ="col-sm-3">
-                    <select id="ta_option" class="ta_option" style="text-align:center">
+                    <select id="ta_option" class="ta_option">
                         <option value="Full Time">Full Time</option>
                         <option value="2/3 Time">2/3 Time</option>
                         <option value="1/3 Time">1/3 Time</option>
                     </select>
                 </div>
             </div>
-            <br>
+            <br style="margin-top: 0px">
             <div class = "divider"> </div>
         </div>
 
 		<div id="RAYes" style="display:none">
-			<div class = "row" style="text-align:center">
+			<div class = "row">
 				<div class ="col-sm-3">
 					<h5>Account</h5>
 					<input type='text' id='RAAcc' name='RAAcc' placeholder="Account">
@@ -182,7 +181,7 @@
 				  	<input type='text' id='RAcode' name='RAcode' placeholder="Prgm. Code">
 			  	</div>
 		 	</div>
-		 	<div class ="row" style="text-align:center">
+		 	<div class ="row">
 			  	<div class ="col-sm-3">
 				  	<h5>Activity</h5>
 				  	<input type='text' id='RAAct' name='RAAct' placeholder="Activity">
@@ -202,7 +201,7 @@
 
 		</div>
 
-		<div class = "row" style="text-align:center">
+		<div class = "row">
 			<div class ="col-sm-4">
 				<h5>Academic Year</h5>
 				<input type="text" required name="year" placeholder="Academic Year"><br>
@@ -224,7 +223,7 @@
         <input type="hidden" name="cred_total" value=0 id="cred_total">
         <input type="hidden" name="cred_max" value=0 id="cred_max">
 
-        <div class = "row" style="text-align:center">
+        <div class = "row">
         	<div class = "col-sm-4">
         		<h5>Course ID</h5>
 				1. <input type="text" name="cid1" id="cid1" placeholder="ID">
@@ -345,7 +344,7 @@
         <br>
 		<div class = "divider"> </div>
         <br>
-        <div style="text-align:center">
+        <div>
             TOTAL: $ <input type="text" name="total" id="total" value="0" style="display:inline"><br><br>
         </div>
 		<input type="checkbox" required name="engineerTotal" id="engineerTotal" onClick="engrCheck()" value="true"> &nbsp;

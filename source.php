@@ -98,9 +98,8 @@
                 for(var i = 0; i < array.length; i++) {
                     var target = "credit".concat(i + 1);
                     var val = parseInt(array[i].value);
-                    var temp = 'cval'.concat(i+1);
+                    var temp = "cval".concat(i+1);
                     if(!isNaN(val)) {
-                        var num = document.getElementById(temp).value;
                         var oldval = parseInt(document.getElementById(temp).value);
                         if(0 < val && val < 6) {
                             total += val;
@@ -120,13 +119,13 @@
                     }
                 }
                 document.getElementById('cred_total').value = total;
-                if(document.getElementById('cred_total').value > document.getElementById('cred_max').value) {
-                    total = 925 * document.getElementById('cred_max').value;
+                if(total > parseInt(document.getElementById('cred_max').value)) {
+                    total = parseInt(document.getElementById('cred_max').value);
                 }
                 if(document.getElementById('engineerTotal').checked) {
-                    document.getElementById('total').value = total + 150;
+                    document.getElementById('total').value = (total * 925) + 150;
                 } else {
-                    document.getElementById('total').value = total
+                    document.getElementById('total').value = total * 925;
                 }
             }
             function addClass() {
@@ -241,13 +240,13 @@
         <input type="hidden" name="cred_total" value=0 id="cred_total">
         <input type="hidden" name="cred_max" value=0 id="cred_max">
         <input type="hidden" name="cval1" id="cval1" value=0>
-        <input type="hidden" name="cval2" id="cval1" value=0>
-        <input type="hidden" name="cval3" id="cval1" value=0>
-        <input type="hidden" name="cval4" id="cval1" value=0>
-        <input type="hidden" name="cval5" id="cval1" value=0>
-        <input type="hidden" name="cval6" id="cval1" value=0>
-        <input type="hidden" name="cval7" id="cval1" value=0>
-        <input type="hidden" name="cval8" id="cval1" value=0>
+        <input type="hidden" name="cval2" id="cval2" value=0>
+        <input type="hidden" name="cval3" id="cval3" value=0>
+        <input type="hidden" name="cval4" id="cval4" value=0>
+        <input type="hidden" name="cval5" id="cval5" value=0>
+        <input type="hidden" name="cval6" id="cval6" value=0>
+        <input type="hidden" name="cval7" id="cval7" value=0>
+        <input type="hidden" name="cval8" id="cval8" value=0>
 
         <div class = "row">
         	<div class = "col-sm-4">
@@ -378,11 +377,11 @@
 		<input type="checkbox" required name="tandc" id="tandc" value="true"> &nbsp;
 		<label for="tandc"> All information provided is correct to my knowledge.</label><br><br>
 
-		<b>Student's Signature</b>
-		<input type="text" name="stusign" placeholder="Student Signature"> &nbsp;
+		<label for="stusign" style="font-weight: normal">Student's Signature</label>
+		<input type="text" name="stusign" id="stusign" placeholder="Student Signature"> &nbsp;
 
-		<b>Date</b>
-		<input type="text" name="studate" placeholder="Date"> &nbsp;
+		<label for="studate" style="font-weight: normal">Date</label>
+		<input type="text" name="studate" id="studate" placeholder="Date"> &nbsp;
 
 		<input type="submit" value="Submit"><br>
 

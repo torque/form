@@ -95,15 +95,31 @@
                 }
                 var array = document.querySelectorAll('.cc');
                 var total = 0;
-                for(var i = 0; i < array.length; i++){
+                for(var i = 0; i < array.length; i++) {
                     var target = "credit".concat(i + 1);
-                    var val = parseInt(array[i].value)
-                    if(val) {
-                        total += (val * 925);
-                        document.getElementById(target).value = val;
+                    var val = parseInt(array[i].value);
+                    var temp = 'cval'.concat(i+1);
+                    if(!isNaN(val)) {
+                        var num = document.getElementById(temp).value;
+                        var oldval = parseInt(document.getElementById(temp).value);
+                        if(0 < val && val < 6) {
+                            total += val;
+                            document.getElementById(target).value = val;
+                            document.getElementById(temp).value = val;
+                        } else {
+                            total += oldval;
+                            if(oldval == 0) {
+                                document.getElementById(target).value = "";
+                            } else {
+                                document.getElementById(target).value = oldval;
+                            }
+                        }
+                    } else {
+                        document.getElementById(target).value = "";
+                        document.getElementById(temp).value = 0;
                     }
                 }
-                document.getElementById('cred_total').value = total / 925;
+                document.getElementById('cred_total').value = total;
                 if(document.getElementById('cred_total').value > document.getElementById('cred_max').value) {
                     total = 925 * document.getElementById('cred_max').value;
                 }
@@ -118,7 +134,7 @@
                 if(number < 8) {
                     number += 1;
                     if(document.getElementById('class_'+number).style.display = "none") {
-                        if(document.getElementById('credit'+(number-1)).value!='') {
+                        if(!isNaN(document.getElementById('credit'+(number-1)).value)) {
                             if(document.getElementById('cred_total').value < document.getElementById('cred_max').value) {
                                 document.getElementById('class_'+number).style.display = "block";
                                 document.getElementById('class_'+number+'_break').style.display = "block";
@@ -143,11 +159,13 @@
                 }
             }
     	</script>
+
 		<label for="TA" style="font-weight: normal">TA</label>
         <input type="radio" onclick="yesnoCheck()" name="atype" id="TA" value="TA" style="display:inline">
 		<label for="RA" style="font-weight: normal">RA</label>
         <input type="radio" onclick="yesnoCheck()" name="atype" id="RA" value="RA" style="display:inline">
         <input type="hidden" name="is_ra" value="false" id="is_ra"/>
+        
         <div id="TAYes" style="display:none">
             <div class="row">
                <div class ="col-sm-3">
@@ -222,6 +240,14 @@
         <input type="hidden" name="course_val" value=1 id="course_val">
         <input type="hidden" name="cred_total" value=0 id="cred_total">
         <input type="hidden" name="cred_max" value=0 id="cred_max">
+        <input type="hidden" name="cval1" id="cval1" value=0>
+        <input type="hidden" name="cval2" id="cval1" value=0>
+        <input type="hidden" name="cval3" id="cval1" value=0>
+        <input type="hidden" name="cval4" id="cval1" value=0>
+        <input type="hidden" name="cval5" id="cval1" value=0>
+        <input type="hidden" name="cval6" id="cval1" value=0>
+        <input type="hidden" name="cval7" id="cval1" value=0>
+        <input type="hidden" name="cval8" id="cval1" value=0>
 
         <div class = "row">
         	<div class = "col-sm-4">

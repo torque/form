@@ -34,7 +34,7 @@
 			</div>
 			<div class ="col-sm-3">
 				<h5>SCU ID</h5>
-				<input type="text" required name="id" placeholder="SCU ID"><br>
+				<input type="text" required name="id" id="id" oninput="checkId(this.id,11)" placeholder="SCU ID"><br>
 			</div>
 			<div class ="col-sm-3">
 				<h5>Major</h5>
@@ -102,6 +102,22 @@
                     document.getElementById("is_ra").value="false";
                 }
             }
+            function checkId(id,len) {
+                var val = document.getElementById(id).value;
+                var prev_val = "";
+                for(var i = 0; i < val.length; i++) {
+                    if(i < len) {
+                        if(!isNaN(val[i])) {
+                            prev_val += val[i];
+                        } else {
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                document.getElementById(id).value = prev_val;
+            }
             function findTotal(){
                 if(document.getElementById('ta_option').value == "Full Time") {
                     document.getElementById('cred_max').value = 8;
@@ -118,7 +134,7 @@
                     var temp = "cval".concat(i+1);
                     if(!isNaN(val)) {
                         var oldval = parseInt(document.getElementById(temp).value);
-                        if(0 < val && val < 6) {
+                        if(0 < val && val < 5) {
                             total += val;
                             document.getElementById(target).value = val;
                             document.getElementById(temp).value = val;
@@ -272,7 +288,7 @@
         <div class = "row">
         	<div class = "col-sm-4">
         		<h5>Course ID</h5>
-				1. <input type="text" name="cid1" id="cid1" placeholder="ID">
+				1. <input type="text" name="cid1" id="cid1" oninput="checkId(this.id,5)" placeholder="ID">
 			</div>
 			<div class = "col-sm-4">
 				<h5>Course Title</h5>
@@ -288,7 +304,7 @@
 
 		<div class = "row" id="class_2" style="display:none">
         	<div class = "col-sm-4">
-				2. <input type="text" name="cid2" id="cid2" placeholder="ID">
+				2. <input type="text" name="cid2" id="cid2" oninput="checkId(this.id,5)" placeholder="ID">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle2" id="ctitle2" placeholder="Title">
@@ -302,7 +318,7 @@
 
 		<div class = "row" id="class_3" style="display:none">
         	<div class = "col-sm-4">
-				3. <input type="text" name="cid3" id="cid3" placeholder="ID">
+				3. <input type="text" name="cid3" id="cid3" oninput="checkId(this.id,5)" placeholder="ID">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle3" id="ctitle3" placeholder="Title">
@@ -316,7 +332,7 @@
 
 		<div class = "row" id="class_4" style="display:none">
         	<div class = "col-sm-4">
-				4. <input type="text" name="cid4" id="cid4" placeholder="ID">
+				4. <input type="text" name="cid4" id="cid4" oninput="checkId(this.id,5)" placeholder="ID">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle4" id="ctitle4" placeholder="Title">
@@ -330,7 +346,7 @@
 
 		<div class = "row" id="class_5" style="display:none">
         	<div class = "col-sm-4">
-				5. <input type="text" name="cid5" id="cid5" placeholder="ID">
+				5. <input type="text" name="cid5" id="cid5" oninput="checkId(this.id,5)" placeholder="ID">
 			</div>
 			<div class = "col-sm-4">
 				<input type="text" name="ctitle5" id="ctitle5" placeholder="Title">
@@ -343,7 +359,7 @@
 
         <div class = "row" id="class_6" style="display:none">
         	<div class = "col-sm-4">
-        		6. <input type="text" name="cid6" id="cid6" placeholder="ID">
+        		6. <input type="text" name="cid6" id="cid6" oninput="checkId(this.id,5)" placeholder="ID">
         	</div>
         	<div class = "col-sm-4">
         		<input type="text" name="ctitle6" id="ctitle6" placeholder="Title">
@@ -357,7 +373,7 @@
 
         <div class = "row" id="class_7" style="display:none">
             <div class = "col-sm-4">
-                7. <input type="text" name="cid7" id="cid7" placeholder="ID">
+                7. <input type="text" name="cid7" id="cid7" oninput="checkId(this.id,5)" placeholder="ID">
             </div>
             <div class = "col-sm-4">
                 <input type="text" name="ctitle7" id="ctitle7" placeholder="Title">
@@ -370,7 +386,7 @@
 
         <div class = "row" id="class_8" style="display:none">
             <div class = "col-sm-4">
-                8. <input type="text" name="cid8" id="cid8" placeholder="ID">
+                8. <input type="text" name="cid8" id="cid8" oninput="checkId(this.id,5)" placeholder="ID">
             </div>
             <div class = "col-sm-4">
                 <input type="text" name="ctitle8" id="ctitle8" placeholder="Title">
@@ -392,7 +408,7 @@
         <br>
         <div>
             <label for="total" style="font-weight: normal">Total: $</label>
-            <input type="text" name="total" id="total" style="display:inline"><br><br>
+            <input type="text" name="total" id="total" style="display:inline" placeholder="0"><br><br>
         </div>
 		<input type="checkbox" required name="engineerTotal" id="engineerTotal" onClick="engrCheck()" value="true"> &nbsp;
 		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label><br>

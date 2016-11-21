@@ -26,11 +26,11 @@
 		<div class = "row">
 			<div class ="col-sm-3">
 				<h5>First Name</h5>
-				<input type="text" required name="first_name" placeholder="First Name"><br>
+				<input type="text" required name="first_name" placeholder="First Name" id="first_name" oninput="setName()"><br>
 			</div>
 			<div class ="col-sm-3">
 				<h5>Last Name</h5>
-				<input type="text" required name="last_name" placeholder="Last Name"><br>
+				<input type="text" required name="last_name" placeholder="Last Name" id="last_name" oninput="setName()"><br>
 			</div>
 			<div class ="col-sm-3">
 				<h5>SCU ID</h5>
@@ -71,15 +71,23 @@
                 var val = month+"/"+day+"/"+year;
                 document.getElementById('studate').value = val;
             }
+            function setName() {
+                var fname = document.getElementById('first_name').value;
+                var lname = document.getElementById('last_name').value;
+                document.getElementById('stusign').value = fname+" "+lname;
+            }
             function engrCheck() {
                 var val = parseInt(document.getElementById('total').value);
+                if(isNaN(val)) {
+                    val = 0;
+                }
                 if(document.getElementById('engineerTotal').checked) {
                     document.getElementById('total').value = val + 150;
                 } else {
-                    if(val >= 150) {
+                    if(val > 150) {
                         document.getElementById('total').value -= "150";
                     } else {
-                        document.getElementById('total').value = 0;
+                        document.getElementById('total').value = "";
                     }
                 }
             }
@@ -134,7 +142,11 @@
                 if(document.getElementById('engineerTotal').checked) {
                     document.getElementById('total').value = (total * 925) + 150;
                 } else {
-                    document.getElementById('total').value = total * 925;
+                    if(total == 0) {
+                        document.getElementById('total').value = "";
+                    } else {
+                        document.getElementById('total').value = total * 925; 
+                    }
                 }
             }
             function addClass() {
@@ -379,7 +391,8 @@
 		<div class = "divider"> </div>
         <br>
         <div>
-            TOTAL: $ <input type="text" name="total" id="total" value="0" style="display:inline"><br><br>
+            <label for="total" style="font-weight: normal">Total: $</label>
+            <input type="text" name="total" id="total" style="display:inline"><br><br>
         </div>
 		<input type="checkbox" required name="engineerTotal" id="engineerTotal" onClick="engrCheck()" value="true"> &nbsp;
 		<label for="engineerTotal"> Engineering Design Center and Student Association Fee ($150 per quarter) </label><br>

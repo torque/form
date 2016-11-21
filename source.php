@@ -63,14 +63,23 @@
 		<h3>Position Data</h3>
 
 		<script type="text/javascript">
+            function setTheDate() {
+                var dt = new Date();
+                var day = dt.getDate();
+                var month = parseInt(dt.getMonth()) + 1;
+                var year = dt.getFullYear();
+                var val = month+"/"+day+"/"+year;
+                document.getElementById('studate').value = val;
+            }
             function engrCheck() {
+                var val = parseInt(document.getElementById('total').value);
                 if(document.getElementById('engineerTotal').checked) {
-                    document.getElementById('total').value = parseInt(document.getElementById('total').value) + 150;
+                    document.getElementById('total').value = val + 150;
                 } else {
-                    if(document.getElementById('total').value >= 150) {
+                    if(val >= 150) {
                         document.getElementById('total').value -= "150";
                     } else {
-                        document.getElementById('total').value = "0";
+                        document.getElementById('total').value = 0;
                     }
                 }
             }
@@ -363,7 +372,7 @@
 
         <div style="text-align:center;">
             <button type="button" id="add_class" onClick="addClass()" style="display:inline">+</button>
-            <button type="button" id="add_class" onClick="removeClass()" style="display:inline">-</button>
+            <button type="button" id="remove_class" onClick="removeClass()" style="display:inline">-</button>
         </div>
 
         <br>
@@ -382,7 +391,7 @@
 
 		<label for="studate" style="font-weight: normal">Date</label>
 		<input type="text" name="studate" id="studate" placeholder="Date"> &nbsp;
-
+        <script>setTheDate()</script>
 		<input type="submit" value="Submit"><br>
 
 		</form>

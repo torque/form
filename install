@@ -3,8 +3,8 @@
 USERNAME='mdemeter' # Username used for directory
 P="/webpages/$USERNAME" # Directory where we will create php-cgi folders
 
-DBASE_UNAME='mdemeter' # MySQL Database Username
-DBASE_PSSWD='00001023775' # MYSQL Database Password
+DBASE_UNAME='' # MySQL Database Username
+DBASE_PSSWD='' # MYSQL Database Password
 
 mkdir -p $P/cgi-bin
 chmod 755 $P/cgi-bin

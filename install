@@ -1,0 +1,34 @@
+#!/bin/bash
+
+USERNAME='mdemeter' # Username used for directory
+P="/webpages/$USERNAME" # Directory where we will create php-cgi folders
+
+DBASE_UNAME='mdemeter' # MySQL Database Username
+DBASE_PSSWD='00001023775' # MYSQL Database Password
+
+mkdir -p $P/cgi-bin
+chmod 755 $P/cgi-bin
+touch $P/cgi-bin/php-cgi.cgi
+echo '#!/bin/sh' > $P/cgi-bin/php-cgi.cgi
+echo 'exec $HTTP_SERVER_DIR/php-cgi "$@"' >> $P/cgi-bin/php-cgi.cgi
+chmod a+x $P/cgi-bin/php-cgi.cgi
+mkdir $P/php-cgi
+chmod 755 $P/php-cgi
+touch $P/php-cgi/.htaccess
+chmod 644 $P/php-cgi/.htaccess
+echo 'AddType application/php-cgi .php' > $P/php-cgi/.htaccess
+echo "Action application/php-cgi /~$USERNAME/cgi-bin/php-cgi.cgi" >> $P/php-cgi/.htaccess
+git clone --recursive https://github.com/COEN174-FORM/form $P/form &> /dev/null
+mv $P/form/* $P/php-cgi/
+chmod 644 $P/php-cgi/*
+touch $P/php-cgi/secrets.txt
+echo $DBASE_UNAME > $P/php-cgi/secrets.txt
+echo $DBASE_PSSWD >> $P/php-cgi/secrets.txt
+chmod 400 $P/php-cgi/secrets.txt
+rm -rf $P/form
+
+echo 'Finished the installation!'
+echo 'You can view the website at:'
+echo "students.engr.scu.edu/~$USERNAME/php-cgi/source.php"
+
+/usr/bin/google-chrome "students.engr.scu.edu/~$USERNAME/php-cgi/source.php" &

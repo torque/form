@@ -10,6 +10,7 @@
         $user = fgets($secrets);
         $user = trim($user, "\n");
         $pass = fgets($secrets);
+        $pass = trim($pass, "\n");
         $db = "sdb_".$user;
         try {
             $pdo = new PDO("mysql:host=$host", $user, $pass);

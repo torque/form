@@ -272,33 +272,33 @@
 			<div class = "row">
 				<div class ="col-sm-3">
 					<h5>Account</h5>
-					<input type='text' required id="RAAcc" oninput="checkLetters(this.id,true)" name='RAAcc' placeholder="Account">
+					<input type='text' id="RAAcc" oninput="checkLetters(this.id,true)" name='RAAcc' placeholder="Account">
 				</div>
 				<div class ="col-sm-3">
 					<h5>Fund</h5>
-				  	<input type='text' required id="RAFund" oninput="checkLetters(this.id,true)" name='RAFund' placeholder="Fund">
+				  	<input type='text' id="RAFund" oninput="checkLetters(this.id,true)" name='RAFund' placeholder="Fund">
 			  	</div>
 			  	<div class ="col-sm-3">
 					<h5>Dept.</h5>
-				  	<input type='text' required id="RADept" oninput="checkLetters(this.id,true)" name='RADept' placeholder="Department">
+				  	<input type='text' id="RADept" oninput="checkLetters(this.id,true)" name='RADept' placeholder="Department">
 			  	</div>
 			  	<div class ="col-sm-3">
 				  	<h5>Prgm. Code</h5>
-				  	<input type='text' required id="RAcode" oninput="checkAlphaNumeric(this.id,true)" name='RAcode' placeholder="Prgm. Code">
+				  	<input type='text' id="RAcode" oninput="checkAlphaNumeric(this.id,true)" name='RAcode' placeholder="Prgm. Code">
 			  	</div>
 		 	</div>
 		 	<div class ="row">
 			  	<div class ="col-sm-3">
 				  	<h5>Activity</h5>
-				  	<input type='text' required id="RAAct" oninput="checkLetters(this.id,true)" name='RAAct' placeholder="Activity">
+				  	<input type='text' id="RAAct" oninput="checkLetters(this.id,true)" name='RAAct' placeholder="Activity">
 			  	</div>
 			  	<div class ="col-sm-3">
 				  	<h5>Class</h5>
-				  	<input type='text' required id="RAClass" oninput="checkAlphaNumeric(this.id)" name='RAClass' placeholder="Class">
+				  	<input type='text' id="RAClass" oninput="checkAlphaNumeric(this.id)" name='RAClass' placeholder="Class">
 			  	</div>
 			  	<div class ="col-sm-3">
 				  	<h5>Project ID</h5>
-				  	<input type='text' required id="RAId" oninput="checkId(this.id)" name='RAId' placeholder="Project ID">
+				  	<input type='text' id="RAId" oninput="checkId(this.id)" name='RAId' placeholder="Project ID">
 			  	</div>
 		  	</div>
 

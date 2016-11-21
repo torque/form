@@ -6,20 +6,20 @@ P="/webpages/$USERNAME" # Directory where we will create php-cgi folders
 DBASE_UNAME='' # MySQL Database Username
 DBASE_PSSWD='' # MYSQL Database Password
 
-mkdir -p $P/cgi-bin
+mkdir -p $P/cgi-bin &> /dev/null
 chmod 755 $P/cgi-bin
 touch $P/cgi-bin/php-cgi.cgi
 echo '#!/bin/sh' > $P/cgi-bin/php-cgi.cgi
 echo 'exec $HTTP_SERVER_DIR/php-cgi "$@"' >> $P/cgi-bin/php-cgi.cgi
 chmod a+x $P/cgi-bin/php-cgi.cgi
-mkdir $P/php-cgi
+mkdir $P/php-cgi &> /dev/null
 chmod 755 $P/php-cgi
 touch $P/php-cgi/.htaccess
 chmod 644 $P/php-cgi/.htaccess
 echo 'AddType application/php-cgi .php' > $P/php-cgi/.htaccess
 echo "Action application/php-cgi /~$USERNAME/cgi-bin/php-cgi.cgi" >> $P/php-cgi/.htaccess
 git clone --recursive https://github.com/COEN174-FORM/form $P/form &> /dev/null
-mv $P/form/* $P/php-cgi/
+mv $P/form/* $P/php-cgi/ &> /dev/null
 chmod 644 $P/php-cgi/*
 touch $P/php-cgi/secrets.txt
 echo $DBASE_UNAME > $P/php-cgi/secrets.txt

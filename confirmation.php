@@ -14,13 +14,12 @@
 <body>
     <?php
         $host = "dbserver.engr.scu.edu";
-        $db = "sdb_mdemeter";
         $table = "Students";
-        $secrets = fopen("../form/secrets.txt", "r");
+        $secrets = fopen("secrets.txt", "r");
         $user = fgets($secrets);
         $user = trim($user, "\n");
         $pass = fgets($secrets);
-        $charset = "utf8";
+        $db = "sdb_".$user;
         try {
             $sig = $_POST["advisor_name"];
             $pdo = new PDO("mysql:host=$host", $user, $pass);

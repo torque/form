@@ -87,6 +87,17 @@ form > h4 {
     border-bottom: 2px solid #008000;
 }
 
+input {
+    transition: border-color 1s;
+}
+.validation-bad {
+    border-color: #FF0000;
+    // transition: border-color 1s;
+}
+.validation-good {
+    border-color: #00FF00;
+}
+
 body {
     font-size: 20px;
 }

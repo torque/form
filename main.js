@@ -49,22 +49,6 @@ function yesnoCheck() {
         document.getElementById("is_ra").value="false";
     }
 }
-function checkId(id,len) {
-    var val = document.getElementById(id).value;
-    var prev_val = "";
-    for(var i = 0; i < val.length; i++) {
-        if(i < len) {
-            if(!isNaN(val[i])) {
-                prev_val += val[i];
-            } else {
-                break;
-            }
-        } else {
-            break;
-        }
-    }
-    document.getElementById(id).value = prev_val;
-}
 function checkDate(id) {
     var val = document.getElementById(id).value;
     var prev_val = "";
@@ -189,6 +173,24 @@ function removeClass() {
     }
 }
 
+function checkStudentID( ) {
+    var studentID = $('#id');
+    var givenID = studentID.val();
+    var pattern = /^[Ww]?[0-9]{6,11}$/;
+    if (givenID === '') {
+        studentID.removeClass('validation-bad', 'validation-good');
+        return;
+    }
+    if (pattern.test(givenID)) {
+        studentID.removeClass('validation-bad');
+        studentID.addClass('validation-good');
+    } else {
+        studentID.removeClass('validation-good');
+        studentID.addClass('validation-bad');
+    }
+}
+
 $(function() {
     setTheDate();
+    $('#id').change(checkStudentID);
 });

@@ -16,10 +16,11 @@ function setTheDate() {
 }
 function setName(id) {
     checkLetters(id);
-    var fname = document.getElementById('first_name').value;
-    var lname = document.getElementById('last_name').value;
-    document.getElementById('stusign').value = fname+" "+lname;
+    var fname = $('#first_name').val();
+    var lname = $('#last_name').val();
+    $('#stusign').val(fname+" "+lname);
 }
+
 function engrCheck() {
     var val = parseInt(document.getElementById('total').value);
     if(isNaN(val)) {

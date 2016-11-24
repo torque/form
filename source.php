@@ -30,7 +30,7 @@
 			</div>
 			<div class ="col-sm-3">
 				<h5>SCU ID</h5>
-				<input type="text" required name="id" id="id" oninput="checkId(this.id,11)" placeholder="SCU ID"><br>
+				<input type="text" required name="id" id="id" oninput="checkId(this.id,11)" placeholder="e.g. 0123456"><br>
 			</div>
 			<div class ="col-sm-3">
 				<h5>Major</h5>
@@ -41,15 +41,15 @@
 		<div class ="row">
 			<div class ="col-sm-3">
 				<h5>Student Email</h5>
-				<input type="email" required name="email" placeholder="Student Email"><br>
+				<input type="email" required name="email" placeholder="e.g. bbronco@scu.edu"><br>
 			</div>
 			<div class ="col-sm-3">
 				<h5>Advisor</h5>
-				<input type="text" required name="advisor" placeholder="Advisor" id="advisor" oninput="checkLetters(this.id,true)"><br>
+				<input type="text" required name="advisor" placeholder="e.g. Dr. Cool Guy" id="advisor" oninput="checkLetters(this.id,true)"><br>
 			</div>
 			<div class ="col-sm-3">
 				<h5>Advisor Email</h5>
-				<input type="email" required name="ademail" placeholder="Advisor Email"><br>
+				<input type="email" required name="ademail" placeholder="e.g. cguy@scu.edu"><br>
 			</div>
 		</div>
 
@@ -279,7 +279,7 @@
 		<input type="text" required name="stusign" id="stusign" oninput="checkLetters(this.id,true)" placeholder="Student Signature"> &nbsp;
 
 		<label for="studate" style="font-weight: normal">Date</label>
-		<input type="text" required name="studate" id="studate" oninput="checkDate(this.id)" placeholder="Date"> &nbsp;
+		<input type="date" required name="studate" id="studate" oninput="checkDate(this.id)" placeholder="MM/DD/YYYY"> &nbsp;
 		<input type="submit" value="Submit"><br>
 
 		</form>

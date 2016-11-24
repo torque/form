@@ -280,7 +280,6 @@
 
 		<label for="studate" style="font-weight: normal">Date</label>
 		<input type="text" required name="studate" id="studate" oninput="checkDate(this.id)" placeholder="Date"> &nbsp;
-        <script>setTheDate()</script>
 		<input type="submit" value="Submit"><br>
 
 		</form>

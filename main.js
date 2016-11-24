@@ -187,3 +187,7 @@ function removeClass() {
         }
     }
 }
+
+$(function() {
+    setTheDate();
+});

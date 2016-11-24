@@ -1,137 +1,97 @@
 .header-bar {
-  
-  width: 100%;
-  background-color: #F8F8F8;
-  padding: 20px;
-
+    width: 100%;
+    background-color: #F8F8F8;
+    padding: 20px;
 }
 
 h1 {
-  
-  margin-right: 30%
-
+    margin-right: 30%
 }
 
 .col-sm-3 {
-
-  padding: 5px;
-
+    padding: 5px;
 }
 
 input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-   border: 1px solid #ccc;
-   border-radius: 5px; 
+.divider {
+    width: 100%;
+    background-color: #DCDCDC;
+    height: 3px;
+}
 
- }
+#approve {
+    background-color: #008000;
+    color: white;
+}
 
- .divider {
-
-  width: 100%;
-  background-color: #DCDCDC;
-  height: 3px;
-
- }
-
- #approve {
-
-  background-color: #008000;
-  color: white;
-
- }
-
- #reject {
-
+#reject {
     background-color: #B22222;
     color: white;
-
- }
+}
 
 #sff {
-
-  border: 1px solid #ccc;
-  border-radius: 3px;
-
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 #print {
-
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 .reveal-if-active {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  font-size: 16px;
-  transform: scale(0.8);
-  transition: 0.5s;
-  
-  label {
-    display: block;
-    margin: 0 0 3px 0;
-  }
-  input[type=text] {
-    width: 100%;
-  }
-  
-  input[type="radio"]:checked ~ &,
-  input[type="checkbox"]:checked ~ & {
-    opacity: 1;
-    max-height: 100px;
-    padding: 10px 20px;
-    transform: scale(1);
-    overflow: visible;
-  }
-  
-}
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    font-size: 16px;
+    transform: scale(0.8);
+    transition: 0.5s;
 
-.form {
-
-  max-width: 700px;
-  margin: 20px auto;
-  > div {
-    margin: 0 0 20px 0;
     label {
-      font-weight: bold;
+        display: block;
+        margin: 0 0 3px 0;
     }
-    > div {
-      padding: 5px;
+    input[type=text] {
+        width: 100%;
     }
-  }
-  > h4 {
-    color: green;
-    font-size: 24px;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid green;
-  }
 
+    input[type="radio"]:checked ~ &,
+    input[type="checkbox"]:checked ~ & {
+        opacity: 1;
+        max-height: 100px;
+        padding: 10px 20px;
+        transform: scale(1);
+        overflow: visible;
+    }
 }
 
 form {
-  max-width: 700px;
-  margin: 20px auto;
-  > div {
-    margin: 0 0 20px 0;
-    label {
-      font-weight: bold;
-    }
+    max-width: 700px;
+    margin: 20px auto;
     > div {
-      padding: 5px;
+        margin: 0 0 20px 0;
+        label {
+            font-weight: bold;
+        }
+        > div {
+            padding: 5px;
+        }
     }
-  }
-  > h4 {
-    color: green;
-    font-size: 24px;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid green;
-  }
+    > h4 {
+        color: green;
+        font-size: 24px;
+        margin: 0 0 10px 0;
+        border-bottom: 2px solid green;
+    }
 }
 
 body {
-  font-size: 20px;
+    font-size: 20px;
 }
 * {
-  box-sizing: border-box;
-} 
+    box-sizing: border-box;
+}
